@@ -29,16 +29,12 @@ import com.click.pro.service.MacService;
 
 @RestController
 @RequestMapping("/api")
-public class HelloWorldController {
+public class MacController {
 	
 	@Autowired
 	private MacService ms;
 	
 	
-    @GetMapping("/hello")
-    public String helloWorld() {
-        return "Hello, World!";
-    }
     @PostMapping("/mousePosition")
     public ResponseEntity<String> getMousePosition(@RequestBody MacClick2 mc) {
         List<MacClick2> mcl = new ArrayList<>();
@@ -49,11 +45,18 @@ public class HelloWorldController {
         clickCoordinates(mc);
         return ms.getposition(mc);
     }
+    
+    @PostMapping("/getfrequentlocation")
+    public Optional<MacClick2> getfrequentlocation(@RequestBody String checkname){
+    	System.out.println(checkname);
+    	    	
+    	return ms.getfrequentxy(checkname);
+    }
+    
     @PostMapping("/clickCoordinates")
     public ResponseEntity<String> clickCoordinates(@RequestBody MacClick2 request) {
         // 플라스크 API 엔드포인트 설정
-        String flaskApiUrl = "http://localhost:5000/clickCoordinates";
-
+        String flaskApiUrl = "http://127.0.0.1:5000/clickCoordinates";
         // RestTemplate을 사용하여 플라스크로 POST 요청 전송
         RestTemplate restTemplate = new RestTemplate();
         // 전달할 데이터를 Map 형태로 변환

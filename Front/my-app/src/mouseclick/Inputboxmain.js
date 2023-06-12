@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MainCs.css'
-
+import GetFrequentLocate from './GetFrequentLocate'
 
 const Inputboxmain = () => {
     const [isTracking, setIsTracking] = useState(false);
@@ -25,7 +25,8 @@ const Inputboxmain = () => {
     const [interval5, setInterval5] = useState();
     const [interval6, setInterval6] = useState();
     const [roop, setRoop] = useState();
-    const [indb, setIndb] = useState();
+    const [indb, setIndb] = useState(false);
+    const [checkname, setCheckname] = useState();
 
     const connectServer = async(event) =>{
         const conSer = [x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6]
@@ -52,7 +53,8 @@ const Inputboxmain = () => {
                   interval5:interval5,
                   interval6:interval6,
                   roop:roop,
-                  indb:indb
+                  indb:indb,
+                  checkname:checkname
                   }),
               });
             if(!response.ok){
@@ -61,8 +63,10 @@ const Inputboxmain = () => {
             const result = await response.json();
             if(result === '전달성공'){
                 console.log("success")
-              
-            };                
+            }
+            else if(result ==='중복'){
+                alert("자주 사용하는 좌표명 중복")
+            }                
             
         } catch(error){
             console.log(error);
@@ -158,18 +162,23 @@ const Inputboxmain = () => {
             setInterval6(e.target.value);
         } else if (e.target.name === "roop"){
             setRoop(e.target.value);        
-        // } else if (e.target.name === "indb"){
-        //     setIndb(e.target.checked);        
-        // }
+        } else if (e.target.name ==="checkname"){
+            setCheckname(e.target.value);
         };
         // const storagecheck = (e) =>{
         //     setIndb();    
         // }
         
     }
+    const location_indb = () =>{
+        const newIndb = !indb;
+        setIndb(newIndb)
+        console.log(newIndb)
+    }
     const testclick = ()=>{
         console.log("test")
     }
+    
     return (
         <div className='controll'>
         <div className='mainpage'>
@@ -181,12 +190,17 @@ const Inputboxmain = () => {
                 <p>X 좌표: {coordinates.x}</p>
                 <p>Y 좌표: {coordinates.y}</p>
                 <h2>마우스 클릭 좌표</h2>
-                <ul>
-                    {clickCoordinates.map((clickCoordinate, index) => (
-                    <li key={index} id='litype'> 클릭 {index + 1}: X 좌표 - {clickCoordinate.x}, Y 좌표 - {clickCoordinate.y}
-                    </li>
-                    ))}
-                </ul>
+                <div>
+                    <ul>
+                        {clickCoordinates.map((clickCoordinate, index) => (
+                        <li key={index} id='litype'> 클릭 {index + 1}: X 좌표 - {clickCoordinate.x}, Y 좌표 - {clickCoordinate.y}
+                        </li>
+                        ))}
+                    </ul>
+                </div>
+                <div>
+                    <GetFrequentLocate/>
+                </div>
                 </div>
             </div>
             <div className='inputMain'>
@@ -231,13 +245,14 @@ const Inputboxmain = () => {
                     <input className='input6' type='text' name='y6' onChange={storage} placeholder='Y 좌표'></input>
                     <input className='input6' type='text' name='interval6' onChange={storage} placeholder='Interval Time'></input>
                 </div>
+                <div>
+                    <span>자주 사용하는 좌표 저장</span>
+                    <input className='checkbox01' type="checkbox" name='indb' checked = {indb} onChange={location_indb}/>
+                    <span>저장명</span><input className='checkname' type='text' name='checkname' onChange={storage}/>
+                </div>
                 <div className='in01'>
                     <span id='span01'>반복 횟수(text of Repetitions) </span>
                     <input className='roop' type='text' name='roop' onChange={storage}></input>
-                    {/* <form id='formcheck' onSubmit={storagecheck}>
-                        <input type="checkbox" name='indb'/>
-                        <button type='submit'>좌표 저장</button>
-                    </form> */}
                     <button type='submit' className="btn-hover color-9">반복 시작(Start)</button>
                 </div>
                 {/* <MouseCoordinates macroinfo = {{x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,interval1, interval2, interval3, interval4, interval5, interval6, roop}}/> */}

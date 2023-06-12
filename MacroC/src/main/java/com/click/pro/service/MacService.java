@@ -5,6 +5,8 @@ import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +23,33 @@ public class MacService {
 	
 	public ResponseEntity<String> getposition(MacClick2 mc) {
         List<MacClick2> mcl = new ArrayList<>();
-        mr.save(mc);
-
+        List<MacClick2> mcl2 = (List<MacClick2>) mr.findAll();
+        boolean alreadyExist = false;
+        if(mc.getIndb().equals("true")) {
+        	mr.save(mc);
+//        	for(MacClick2 m: mcl2) {
+//        	
+//	        	if(m.getCheckname().equals(mc.getCheckname())) {
+//	        		alreadyExist = true;
+//	        		return ResponseEntity.badRequest().body("중복");
+//	        	}
+//	        	else{
+//	        	 
+//		        	mr.save(mc);
+//		        	return ResponseEntity.ok().body("저장성공");
+//	        	}
+//        	}
+        }
+        
 		return ResponseEntity.ok().body("전달성공");
+	}
+
+	public Optional<MacClick2> getfrequentxy(String checkname) {
+		System.out.println(checkname);
+		Optional<MacClick2> mc2 = mr.findByCheckname(checkname);
+
+		System.out.println(mc2.toString());
+		System.out.println("reposite");
+		return mc2;
 	}
 }
