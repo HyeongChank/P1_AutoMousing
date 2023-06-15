@@ -30,7 +30,8 @@ const GetFrequentLocate = () =>{
      }}
 
     return(
-        <div>
+        <div className="getfreauentpage">
+            <h2 id="getlocateP">좌표 불러오기</h2>
             <input type='text' name='cn' onChange={handlename}/>
             <button onClick={getlocatexy}>좌표 가져오기</button>
             <div>

@@ -27,6 +27,27 @@
     flex-direction: column;
     border: 1px solid black;
 }
+.realtimeLocate{
+
+    height: 300px;
+    overflow: scroll;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.getStorageLocate{
+
+    height: 400px;
+    overflow: scroll;
+    overflow-y: scroll;
+    max-height: 100%;
+}
+.getfreauentpage{
+    height: 100%;
+}
+#getlocateP{
+    font-weight: bold;
+}
 .inputMain{
     background-color: rgba(0, 195, 255, 0.356);
     width: 80%;
