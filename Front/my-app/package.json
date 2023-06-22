@@ -22,6 +22,7 @@
   "eslintConfig": {
     "extends": [
       "react-app"
+
     ]
   },
   "browserslist": {
@@ -45,7 +46,6 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.21.4",
-    "@types/regenerator-runtime": "^0.13.1",
-    "eslint-plugin-react": "^7.32.2"
+    "@types/regenerator-runtime": "^0.13.1"
   }
 }

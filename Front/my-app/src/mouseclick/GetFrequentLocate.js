@@ -22,8 +22,13 @@ const GetFrequentLocate = () =>{
                 
             })
             const result = await response.json();
-            setFrequentxy(result)
-            console.log(result);
+            if(result != null){
+                setFrequentxy(result)
+                console.log(result);
+            }
+            else if(result ===null){
+                alert("해당 좌표명이 없습니다.")
+            }
         }
         catch(error){
             console.log(error);
@@ -35,7 +40,7 @@ const GetFrequentLocate = () =>{
             <input type='text' name='cn' onChange={handlename}/>
             <button onClick={getlocatexy}>좌표 가져오기</button>
             <div>
-                {Object.entries(frequentxy).map(([key, value], index) =>(
+                {frequentxy && Object.entries(frequentxy).map(([key, value], index) =>(
                     <div key={index}>
                         {key} : {value !==null ? value : ''}
                     </div>

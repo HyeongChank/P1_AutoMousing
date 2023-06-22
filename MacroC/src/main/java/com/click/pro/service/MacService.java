@@ -44,12 +44,13 @@ public class MacService {
 		return ResponseEntity.ok().body("전달성공");
 	}
 
-	public Optional<MacClick2> getfrequentxy(String checkname) {
+	public ResponseEntity<Optional<MacClick2>> getfrequentxy(String checkname) {
 		System.out.println(checkname);
-		Optional<MacClick2> mc2 = mr.findByCheckname(checkname);
+		Optional<MacClick2> m2 = mr.findByCheckname(checkname);
+			
+		System.out.println(m2.toString());
 
-		System.out.println(mc2.toString());
 		System.out.println("reposite");
-		return mc2;
+		return ResponseEntity.ok().body(m2);
 	}
 }

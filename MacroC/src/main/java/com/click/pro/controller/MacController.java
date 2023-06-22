@@ -47,7 +47,7 @@ public class MacController {
     }
     
     @PostMapping("/getfrequentlocation")
-    public Optional<MacClick2> getfrequentlocation(@RequestBody String checkname){
+    public ResponseEntity<Optional<MacClick2>> getfrequentlocation(@RequestBody String checkname){
     	System.out.println(checkname);
     	    	
     	return ms.getfrequentxy(checkname);

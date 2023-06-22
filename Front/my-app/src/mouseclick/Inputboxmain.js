@@ -208,7 +208,7 @@ const Inputboxmain = () => {
             <div>
             <form id='formid' onSubmit={connectServer}>
                 <div className='in01'>
-                    <p>마우스 좌표 및 대기시간 입력</p>
+                    <h2>마우스 좌표 및 대기시간 입력</h2>
                 </div>
                 <div className='in01'>
                     <span id='span01'>첫번째 클릭 </span>
