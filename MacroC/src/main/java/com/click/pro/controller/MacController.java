@@ -30,10 +30,12 @@ import com.click.pro.service.MacService;
 @RestController
 @RequestMapping("/api")
 public class MacController {
-	
-	@Autowired
-	private MacService ms;
-	
+	// 필드 주입보다 생성자 주입 추천하는 이유 : 의존성 명시적 표현, 테스트 용이성(의존성 직접 제어 가능)
+	private final MacService ms;
+
+    public MacController(MacService ms) { // 생성자를 추가하고, 이를 통해 MacService를 주입
+        this.ms = ms;
+    }	
 	
     @PostMapping("/mousePosition")
     public ResponseEntity<String> getMousePosition(@RequestBody MacClick2 mc) {

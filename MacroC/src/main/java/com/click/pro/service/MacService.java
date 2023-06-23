@@ -18,8 +18,11 @@ import com.click.pro.persistence.MacRepository;
 @Service
 public class MacService {
 
-	@Autowired
-	private MacRepository mr;
+	private final MacRepository mr;
+	
+	public MacService(MacRepository mr) {
+		this.mr = mr;
+	}
 	
 	public ResponseEntity<String> getposition(MacClick2 mc) {
         List<MacClick2> mcl = new ArrayList<>();
@@ -28,13 +31,11 @@ public class MacService {
         if(mc.getIndb().equals("true")) {
         	mr.save(mc);
 //        	for(MacClick2 m: mcl2) {
-//        	
 //	        	if(m.getCheckname().equals(mc.getCheckname())) {
 //	        		alreadyExist = true;
 //	        		return ResponseEntity.badRequest().body("중복");
 //	        	}
 //	        	else{
-//	        	 
 //		        	mr.save(mc);
 //		        	return ResponseEntity.ok().body("저장성공");
 //	        	}
