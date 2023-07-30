@@ -69,7 +69,7 @@ const Inputboxmain = () => {
             }                
             
         } catch(error){
-            console.log(error);
+            // console.log(error);
         }
   
     };   
@@ -184,30 +184,31 @@ const Inputboxmain = () => {
         <div className='mainpage'>
             <div className='outputmain'>
                 <div>
-                <button onClick={startTracking} className="btn-hover color-9">마우스 위치 추적 시작</button>
-                <button onClick={stopTracking} className="btn-hover color-9">마우스 위치 추적 중지</button>
-                <button onClick={resetlocation} className="btn-hover color-10">reset</button>
-                <p>X 좌표: {coordinates.x}</p>
-                <p>Y 좌표: {coordinates.y}</p>
-                <h2>마우스 클릭 좌표</h2>
-                <div>
-                    <ul>
-                        {clickCoordinates.map((clickCoordinate, index) => (
-                        <li key={index} id='litype'> 클릭 {index + 1}: X 좌표 - {clickCoordinate.x}, Y 좌표 - {clickCoordinate.y}
-                        </li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <GetFrequentLocate/>
-                </div>
+
+                    <button onClick={startTracking} className="btn-hover color-9">마우스 위치 추적 시작</button>
+                    <button onClick={stopTracking} className="btn-hover color-9">마우스 위치 추적 중지</button>
+                    <button onClick={resetlocation} className="btn-hover color-10">reset</button>
+                    <p>X 좌표: {coordinates.x}</p>
+                    <p>Y 좌표: {coordinates.y}</p>
+                    <h2>마우스 클릭 좌표</h2>
+                    <div className='realtimeLocate'>
+                        <ul>
+                            {clickCoordinates.map((clickCoordinate, index) => (
+                            <li key={index} id='litype'> 클릭 {index + 1}: X 좌표 - {clickCoordinate.x}, Y 좌표 - {clickCoordinate.y}
+                            </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className='getStorageLocate'>
+                        <GetFrequentLocate/>
+                    </div>
                 </div>
             </div>
             <div className='inputMain'>
             <div>
             <form id='formid' onSubmit={connectServer}>
                 <div className='in01'>
-                    <p>마우스 좌표 및 대기시간 입력</p>
+                    <h2>마우스 좌표 및 대기시간 입력</h2>
                 </div>
                 <div className='in01'>
                     <span id='span01'>첫번째 클릭 </span>

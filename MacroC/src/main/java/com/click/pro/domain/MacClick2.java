@@ -1,11 +1,41 @@
 package com.click.pro.domain;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="MacClick2", indexes= {
+		@Index(columnList="id"),
+		@Index(columnList="x1"),
+		@Index(columnList="y1"),
+		@Index(columnList="x2"),
+		@Index(columnList="y2"),
+		@Index(columnList="x3"),
+		@Index(columnList="y3"),
+		@Index(columnList="x4"),
+		@Index(columnList="y4"),
+		@Index(columnList="x5"),
+		@Index(columnList="y5"),
+		@Index(columnList="x6"),
+		@Index(columnList="y6"),
+		@Index(columnList="interval1"),
+		@Index(columnList="interval2"),
+		@Index(columnList="interval3"),
+		@Index(columnList="interval4"),
+		@Index(columnList="interval5"),
+		@Index(columnList="interval6"),
+		@Index(columnList="roop"),
+		@Index(columnList="indb"),
+		@Index(columnList="checkname")
+})
+@EntityListeners(AuditingEntityListener.class)
 public class MacClick2 {
 	
 	@Id

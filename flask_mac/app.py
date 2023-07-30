@@ -1,8 +1,10 @@
 from flask import Flask, request
 import pyautogui
 import time
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/clickCoordinates', methods=['POST'])
 def click_coordinates():
@@ -15,7 +17,7 @@ def click_coordinates():
     x5 = None; y5 = None; interval5 = None
     x6 = None; y6 = None; interval6 = None
 
-    # 리액트에서 받은 좌표
+    # 리액트에서 받은 좌표pip
     x1 = coordinates['x1']
     if x1 is not None:
         x1 = int(x1)

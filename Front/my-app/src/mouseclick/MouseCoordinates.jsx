@@ -2,7 +2,6 @@
 import './MainCs.css'
 import Inputboxmain from './Inputboxmain';
 import { useNavigate } from 'react-router-dom';
-import RouteNv from './RouteNv';
 
 const MouseCoordinates = () => {
 
