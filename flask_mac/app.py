@@ -19,73 +19,73 @@ def click_coordinates():
     x1 = coordinates['x1']
     if x1 is not None:
         x1 = int(x1)
-        python_x1 = x1 / 100 * 90
+        python_x1 = x1 / 100 * 80
     else:
         python_x1 = None
     y1 = coordinates['y1']
     if y1 is not None:
         y1 = int(y1)
-        python_y1 = y1 / 100 * 90
+        python_y1 = y1 / 100 * 80
     else:
         python_y1 = None    
     x2 = coordinates['x2']
     if x2 is not None:
         x2 = int(x2)
-        python_x2 = x2 / 100 * 90
+        python_x2 = x2 / 100 * 80
     else:
         python_x2 = None    
     y2 = coordinates['y2']
     if y2 is not None:
         y2 = int(y2)
-        python_y2 = y2 / 100 * 90
+        python_y2 = y2 / 100 * 80
     else:
         python_y2 = None    
     x3 = coordinates['x3']
     if x3 is not None:
         x3 = int(x3)
-        python_x3 = x3 / 100 * 90
+        python_x3 = x3 / 100 * 80
     else:
         python_x3 = None
     y3 = coordinates['y3']
     if y3 is not None:
         y3 = int(y3)
-        python_y3 = y3 / 100 * 90
+        python_y3 = y3 / 100 * 80
     else:
         python_y3 = None    
     x4 = coordinates['x4']
     if x4 is not None:
         x4 = int(x4)
-        python_x4 = x4 / 100 * 90
+        python_x4 = x4 / 100 * 80
     else:
         python_x4 = None
     y4 = coordinates['y4']
     if y4 is not None:
         y4 = int(y4)
-        python_y4 = y4 / 100 * 90
+        python_y4 = y4 / 100 * 80
     else:
         python_y4 = None    
     x5 = coordinates['x5']
     if x5 is not None:
         x5 = int(x5)
-        python_x5 = x5 / 100 * 90
+        python_x5 = x5 / 100 * 80
     else:
         python_x5 = None
     y5 = coordinates['y5']
     if y5 is not None:
         y5 = int(y5)
-        python_y5 = y5 / 100 * 90
+        python_y5 = y5 / 100 * 80
     else:
         python_y5 = None    
     x6 = coordinates['x6']
     if x6 is not None:
         x6 = int(x6)
-        python_x6 = x6 / 100 * 90
+        python_x6 = x6 / 100 * 80
     else:
         python_x6 = None
     y6 = coordinates['y6']
     if y6 is not None:
         y6 = int(y6)
-        python_y6 = y6 / 100 * 90
+        python_y6 = y6 / 100 * 80
     else:
         python_y6 = None    
     interval1 = coordinates['interval1']
